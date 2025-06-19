@@ -11,60 +11,60 @@ import { AuthGuard } from 'src/auth/guard';
 // ----------------------------------------------------------------------
 
 // Overview
-const IndexPage = lazy(() => import('src/pages/dashboard'));
-const OverviewEcommercePage = lazy(() => import('src/pages/dashboard/ecommerce'));
-const OverviewAnalyticsPage = lazy(() => import('src/pages/dashboard/analytics'));
-const OverviewBankingPage = lazy(() => import('src/pages/dashboard/banking'));
-const OverviewBookingPage = lazy(() => import('src/pages/dashboard/booking'));
-const OverviewFilePage = lazy(() => import('src/pages/dashboard/file'));
-const OverviewCoursePage = lazy(() => import('src/pages/dashboard/course'));
+const IndexPage = lazy(() => import('src/pages'));
+const OverviewEcommercePage = lazy(() => import('src/pages/sample/ecommerce'));
+const OverviewAnalyticsPage = lazy(() => import('src/pages/sample/analytics'));
+const OverviewBankingPage = lazy(() => import('src/pages/sample/banking'));
+const OverviewBookingPage = lazy(() => import('src/pages/sample/booking'));
+const OverviewFilePage = lazy(() => import('src/pages/sample/file'));
+const OverviewCoursePage = lazy(() => import('src/pages/sample/course'));
 // Product
-const ProductDetailsPage = lazy(() => import('src/pages/dashboard/product/details'));
-const ProductListPage = lazy(() => import('src/pages/dashboard/product/list'));
-const ProductCreatePage = lazy(() => import('src/pages/dashboard/product/new'));
-const ProductEditPage = lazy(() => import('src/pages/dashboard/product/edit'));
+const ProductDetailsPage = lazy(() => import('src/pages/sample/product/details'));
+const ProductListPage = lazy(() => import('src/pages/sample/product/list'));
+const ProductCreatePage = lazy(() => import('src/pages/sample/product/new'));
+const ProductEditPage = lazy(() => import('src/pages/sample/product/edit'));
 // Order
-const OrderListPage = lazy(() => import('src/pages/dashboard/order/list'));
-const OrderDetailsPage = lazy(() => import('src/pages/dashboard/order/details'));
+const OrderListPage = lazy(() => import('src/pages/sample/order/list'));
+const OrderDetailsPage = lazy(() => import('src/pages/sample/order/details'));
 // Invoice
-const InvoiceListPage = lazy(() => import('src/pages/dashboard/invoice/list'));
-const InvoiceDetailsPage = lazy(() => import('src/pages/dashboard/invoice/details'));
-const InvoiceCreatePage = lazy(() => import('src/pages/dashboard/invoice/new'));
-const InvoiceEditPage = lazy(() => import('src/pages/dashboard/invoice/edit'));
+const InvoiceListPage = lazy(() => import('src/pages/sample/invoice/list'));
+const InvoiceDetailsPage = lazy(() => import('src/pages/sample/invoice/details'));
+const InvoiceCreatePage = lazy(() => import('src/pages/sample/invoice/new'));
+const InvoiceEditPage = lazy(() => import('src/pages/sample/invoice/edit'));
 // User
-const UserProfilePage = lazy(() => import('src/pages/dashboard/user/profile'));
-const UserCardsPage = lazy(() => import('src/pages/dashboard/user/cards'));
-const UserListPage = lazy(() => import('src/pages/dashboard/user/list'));
-const UserAccountPage = lazy(() => import('src/pages/dashboard/user/account'));
-const UserCreatePage = lazy(() => import('src/pages/dashboard/user/new'));
-const UserEditPage = lazy(() => import('src/pages/dashboard/user/edit'));
+const UserProfilePage = lazy(() => import('src/pages/sample/user/profile'));
+const UserCardsPage = lazy(() => import('src/pages/sample/user/cards'));
+const UserListPage = lazy(() => import('src/pages/sample/user/list'));
+const UserAccountPage = lazy(() => import('src/pages/sample/user/account'));
+const UserCreatePage = lazy(() => import('src/pages/sample/user/new'));
+const UserEditPage = lazy(() => import('src/pages/sample/user/edit'));
 // Blog
-const BlogPostsPage = lazy(() => import('src/pages/dashboard/post/list'));
-const BlogPostPage = lazy(() => import('src/pages/dashboard/post/details'));
-const BlogNewPostPage = lazy(() => import('src/pages/dashboard/post/new'));
-const BlogEditPostPage = lazy(() => import('src/pages/dashboard/post/edit'));
+const BlogPostsPage = lazy(() => import('src/pages/post/list'));
+const BlogPostPage = lazy(() => import('src/pages/post/details'));
+const BlogNewPostPage = lazy(() => import('src/pages/post/new'));
+const BlogEditPostPage = lazy(() => import('src/pages/post/edit'));
 // Job
-const JobDetailsPage = lazy(() => import('src/pages/dashboard/job/details'));
-const JobListPage = lazy(() => import('src/pages/dashboard/job/list'));
-const JobCreatePage = lazy(() => import('src/pages/dashboard/job/new'));
-const JobEditPage = lazy(() => import('src/pages/dashboard/job/edit'));
+const JobDetailsPage = lazy(() => import('src/pages/sample/job/details'));
+const JobListPage = lazy(() => import('src/pages/sample/job/list'));
+const JobCreatePage = lazy(() => import('src/pages/sample/job/new'));
+const JobEditPage = lazy(() => import('src/pages/sample/job/edit'));
 // Tour
-const TourDetailsPage = lazy(() => import('src/pages/dashboard/tour/details'));
-const TourListPage = lazy(() => import('src/pages/dashboard/tour/list'));
-const TourCreatePage = lazy(() => import('src/pages/dashboard/tour/new'));
-const TourEditPage = lazy(() => import('src/pages/dashboard/tour/edit'));
+const TourDetailsPage = lazy(() => import('src/pages/sample/tour/details'));
+const TourListPage = lazy(() => import('src/pages/sample/tour/list'));
+const TourCreatePage = lazy(() => import('src/pages/sample/tour/new'));
+const TourEditPage = lazy(() => import('src/pages/sample/tour/edit'));
 // File manager
-const FileManagerPage = lazy(() => import('src/pages/dashboard/file-manager'));
+const FileManagerPage = lazy(() => import('src/pages/sample/file-manager'));
 // App
-const ChatPage = lazy(() => import('src/pages/dashboard/chat'));
-const MailPage = lazy(() => import('src/pages/dashboard/mail'));
-const CalendarPage = lazy(() => import('src/pages/dashboard/calendar'));
-const KanbanPage = lazy(() => import('src/pages/dashboard/kanban'));
+const ChatPage = lazy(() => import('src/pages/sample/chat'));
+const MailPage = lazy(() => import('src/pages/sample/mail'));
+const CalendarPage = lazy(() => import('src/pages/sample/calendar'));
+const KanbanPage = lazy(() => import('src/pages/sample/kanban'));
 // Test render page by role
-const PermissionDeniedPage = lazy(() => import('src/pages/dashboard/permission'));
+const PermissionDeniedPage = lazy(() => import('src/pages/sample/permission'));
 // Blank page
-const ParamsPage = lazy(() => import('src/pages/dashboard/params'));
-const BlankPage = lazy(() => import('src/pages/dashboard/blank'));
+const ParamsPage = lazy(() => import('src/pages/sample/params'));
+const BlankPage = lazy(() => import('src/pages/sample/blank'));
 
 // ----------------------------------------------------------------------
 

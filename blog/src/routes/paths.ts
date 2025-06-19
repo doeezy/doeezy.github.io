@@ -17,6 +17,28 @@ const ROOTS = {
 // ----------------------------------------------------------------------
 
 export const paths = {
+  javascript: {
+    root: '/javascript/list',
+    details: (title: string) => `/javascript/${paramCase(title)}`,
+  },
+  react: {
+    root: '/react/list',
+    details: (title: string) => `/react/${paramCase(title)}`,
+  },
+  vuejs: {
+    root: '/vuejs/list',
+    details: (title: string) => `/vuejs/${paramCase(title)}`,
+  },
+  nuxtjs: {
+    root: '/nuxtjs/list',
+    details: (title: string) => `/nuxtjs/${paramCase(title)}`,
+  },
+  keycloak: {
+    root: '/javascript/list',
+    details: (title: string) => `/keycloak/${paramCase(title)}`,
+  },
+
+  // ----------------------------------------------------------
   comingSoon: '/coming-soon',
   maintenance: '/maintenance',
   pricing: '/pricing',
@@ -45,52 +67,7 @@ export const paths = {
     details: (title: string) => `/post/${paramCase(title)}`,
     demo: { details: `/post/${paramCase(MOCK_TITLE)}` },
   },
-  // AUTH
-  auth: {
-    amplify: {
-      signIn: `${ROOTS.AUTH}/amplify/sign-in`,
-      verify: `${ROOTS.AUTH}/amplify/verify`,
-      signUp: `${ROOTS.AUTH}/amplify/sign-up`,
-      updatePassword: `${ROOTS.AUTH}/amplify/update-password`,
-      resetPassword: `${ROOTS.AUTH}/amplify/reset-password`,
-    },
-    jwt: {
-      signIn: `${ROOTS.AUTH}/jwt/sign-in`,
-      signUp: `${ROOTS.AUTH}/jwt/sign-up`,
-    },
-    firebase: {
-      signIn: `${ROOTS.AUTH}/firebase/sign-in`,
-      verify: `${ROOTS.AUTH}/firebase/verify`,
-      signUp: `${ROOTS.AUTH}/firebase/sign-up`,
-      resetPassword: `${ROOTS.AUTH}/firebase/reset-password`,
-    },
-    auth0: {
-      signIn: `${ROOTS.AUTH}/auth0/sign-in`,
-    },
-    supabase: {
-      signIn: `${ROOTS.AUTH}/supabase/sign-in`,
-      verify: `${ROOTS.AUTH}/supabase/verify`,
-      signUp: `${ROOTS.AUTH}/supabase/sign-up`,
-      updatePassword: `${ROOTS.AUTH}/supabase/update-password`,
-      resetPassword: `${ROOTS.AUTH}/supabase/reset-password`,
-    },
-  },
-  authDemo: {
-    split: {
-      signIn: `${ROOTS.AUTH_DEMO}/split/sign-in`,
-      signUp: `${ROOTS.AUTH_DEMO}/split/sign-up`,
-      resetPassword: `${ROOTS.AUTH_DEMO}/split/reset-password`,
-      updatePassword: `${ROOTS.AUTH_DEMO}/split/update-password`,
-      verify: `${ROOTS.AUTH_DEMO}/split/verify`,
-    },
-    centered: {
-      signIn: `${ROOTS.AUTH_DEMO}/centered/sign-in`,
-      signUp: `${ROOTS.AUTH_DEMO}/centered/sign-up`,
-      resetPassword: `${ROOTS.AUTH_DEMO}/centered/reset-password`,
-      updatePassword: `${ROOTS.AUTH_DEMO}/centered/update-password`,
-      verify: `${ROOTS.AUTH_DEMO}/centered/verify`,
-    },
-  },
+
   // DASHBOARD
   dashboard: {
     root: ROOTS.DASHBOARD,

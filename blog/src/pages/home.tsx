@@ -7,14 +7,15 @@ export default function Page() {
   const location = useLocation()
   const navigator = useNavigate()
 
-  useEffect(() => {
-    if(location.pathname === "/") {
-      navigator('/dashboard');
-    }
-  }, [location.pathname, navigator])
+  // useEffect(() => {
+  //   if(location.pathname === "/") {
+  //     navigator('/dashboard');
+  //   }
+  // }, [location.pathname, navigator])
 
   return (
     <>
+      doeezy`s blog
     </>
   );
 }

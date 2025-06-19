@@ -16,7 +16,7 @@ import { varAlpha, bgGradient } from 'src/theme/styles';
 
 import { Label } from 'src/components/label';
 
-import { useMockedUser } from 'src/auth/hooks';
+import { useMockedUser } from '../../auth/hooks/use-mocked-user';
 
 // ----------------------------------------------------------------------
 

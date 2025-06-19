@@ -1,15 +1,12 @@
 import type { NavSectionProps } from 'src/components/nav-section';
-import type { Theme, SxProps, Breakpoint } from '@mui/material/styles';
+import type { Breakpoint, SxProps, Theme } from '@mui/material/styles';
+import { useTheme } from '@mui/material/styles';
 
 import Box from '@mui/material/Box';
 import Alert from '@mui/material/Alert';
-import { useTheme } from '@mui/material/styles';
 import { iconButtonClasses } from '@mui/material/IconButton';
 
 import { useBoolean } from 'src/hooks/use-boolean';
-
-import { allLangs } from 'src/locales';
-import { _contacts, _notifications } from 'src/_mock';
 
 import { Logo } from 'src/components/logo';
 import { useSettingsContext } from 'src/components/settings';
@@ -21,18 +18,12 @@ import { NavVertical } from './nav-vertical';
 import { NavHorizontal } from './nav-horizontal';
 import { _account } from '../config-nav-account';
 import { Searchbar } from '../components/searchbar';
-import { _workspaces } from '../config-nav-workspace';
 import { MenuButton } from '../components/menu-button';
 import { LayoutSection } from '../core/layout-section';
 import { HeaderSection } from '../core/header-section';
 import { StyledDivider, useNavColorVars } from './styles';
 import { AccountDrawer } from '../components/account-drawer';
-import { SettingsButton } from '../components/settings-button';
-import { LanguagePopover } from '../components/language-popover';
-import { ContactsPopover } from '../components/contacts-popover';
-import { WorkspacesPopover } from '../components/workspaces-popover';
-import { navData as dashboardNavData } from '../config-nav-dashboard';
-import { NotificationsDrawer } from '../components/notifications-drawer';
+import { navData as mainNavData } from '../config-nav-main';
 
 // ----------------------------------------------------------------------
 
@@ -58,7 +49,7 @@ export function MainLayout({ sx, children, header, data }: DashboardLayoutProps)
 
   const layoutQuery: Breakpoint = 'lg';
 
-  const navData = data?.nav ?? dashboardNavData;
+  const navData = data?.nav ?? mainNavData;
 
   const isNavMini = settings.navLayout === 'mini';
   const isNavHorizontal = settings.navLayout === 'horizontal';
@@ -140,17 +131,12 @@ export function MainLayout({ sx, children, header, data }: DashboardLayoutProps)
                     sx={{ [theme.breakpoints.up(layoutQuery)]: { display: 'flex' } }}
                   />
                 )}
-                {/* -- Workspace popover -- */}
-                <WorkspacesPopover
-                  data={_workspaces}
-                  sx={{ color: 'var(--layout-nav-text-primary-color)' }}
-                />
               </>
             ),
             rightArea: (
               <Box display="flex" alignItems="center" gap={{ xs: 0, sm: 0.75 }}>
                 {/* -- Searchbar -- */}
-                <Searchbar data={navData} />
+                {/*<Searchbar data={navData} />*/}
 
                 {/* -- Account drawer -- */}
                 <AccountDrawer data={_account} />

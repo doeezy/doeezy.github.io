@@ -12,10 +12,9 @@ import { useRouter, usePathname } from 'src/routes/hooks';
 import { Label } from 'src/components/label';
 import { usePopover, CustomPopover } from 'src/components/custom-popover';
 
-import { useMockedUser } from 'src/auth/hooks';
+import { useMockedUser} from "../../auth/hooks/use-mocked-user";
 
 import { AccountButton } from './account-button';
-import { SignOutButton } from './sign-out-button';
 
 // ----------------------------------------------------------------------
 
@@ -106,14 +105,6 @@ export function AccountPopover({ data = [], sx, ...other }: AccountPopoverProps)
 
         <Divider sx={{ borderStyle: 'dashed' }} />
 
-        <Box sx={{ p: 1 }}>
-          <SignOutButton
-            size="medium"
-            variant="text"
-            onClose={popover.onClose}
-            sx={{ display: 'block', textAlign: 'left' }}
-          />
-        </Box>
       </CustomPopover>
     </>
   );
