@@ -37,6 +37,10 @@ export const paths = {
     root: '/javascript/list',
     details: (title: string) => `/keycloak/${paramCase(title)}`,
   },
+  troubleshooting: {
+    root: '/troubleshooting/list',
+    details: (title: string) => `/troubleshooting/${paramCase(title)}`,
+  },
 
   // ----------------------------------------------------------
   comingSoon: '/coming-soon',

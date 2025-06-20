@@ -23,10 +23,12 @@ import type { MarkdownProps } from './types';
 
 export function Markdown({ children, sx, ...other }: MarkdownProps) {
   const content = useMemo(() => {
-    if (isMarkdownContent(`${children}`)) {
-      return children;
-    }
-    return htmlToMarkdown(`${children}`.trim());
+    // if (isMarkdownContent(`${children}`)) {
+    //   return children;
+    // }
+    //
+    // return htmlToMarkdown(`${children}`.trim());
+    return children;
   }, [children]);
 
   return (

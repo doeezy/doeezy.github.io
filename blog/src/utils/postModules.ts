@@ -7,4 +7,5 @@ export const postModulesByCategory = {
   nuxtjs: import.meta.glob('/src/pages-post/nuxtjs/*.md', { as: 'raw' }),
   react: import.meta.glob('/src/pages-post/react/*.md', { as: 'raw' }),
   vuejs: import.meta.glob('/src/pages-post/vuejs/*.md', { as: 'raw' }),
+  troubleshooting: import.meta.glob('/src/pages-post/troubleshooting/*.md', { as: 'raw' }),
 };

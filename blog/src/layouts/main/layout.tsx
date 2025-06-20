@@ -23,7 +23,8 @@ import { LayoutSection } from '../core/layout-section';
 import { HeaderSection } from '../core/header-section';
 import { StyledDivider, useNavColorVars } from './styles';
 import { AccountDrawer } from '../components/account-drawer';
-import { navData as mainNavData } from '../config-nav-main';
+import { getNavData } from '../config-nav-main';
+import { useState, useEffect } from 'react';
 
 // ----------------------------------------------------------------------
 
@@ -39,6 +40,12 @@ export type DashboardLayoutProps = {
 };
 
 export function MainLayout({ sx, children, header, data }: DashboardLayoutProps) {
+  const [navData, setNavData] = useState([]);
+
+  useEffect(() => {
+    getNavData().then(setNavData);
+  }, []);
+
   const theme = useTheme();
 
   const mobileNavOpen = useBoolean();
@@ -49,7 +56,7 @@ export function MainLayout({ sx, children, header, data }: DashboardLayoutProps)
 
   const layoutQuery: Breakpoint = 'lg';
 
-  const navData = data?.nav ?? mainNavData;
+  //const navData = data?.nav ?? getNavData();
 
   const isNavMini = settings.navLayout === 'mini';
   const isNavHorizontal = settings.navLayout === 'horizontal';

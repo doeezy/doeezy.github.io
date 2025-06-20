@@ -20,7 +20,7 @@ export default function Page() {
 
   useEffect(() => {
     const fetchPost = async () => {
-      const matchPost = Object.entries(postModulesByCategory.javascript).find(([path, loader]) =>
+      const matchPost = Object.entries(postModulesByCategory.troubleshooting).find(([path, loader]) =>
         path.includes(`${title}.md`)
       );
 
@@ -45,7 +45,7 @@ export default function Page() {
         <title> {`${info?.title ?? ''} | ${CONFIG.appName}`}</title>
       </Helmet>
 
-      <PostDetailsView info={info} post={markdown} backLink={paths.javascript.root} />
+      <PostDetailsView info={info} post={markdown} backLink={paths.troubleshooting.root} />
     </>
   );
 }
