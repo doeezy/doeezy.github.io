@@ -88,44 +88,8 @@ export function PostListView() {
         direction={{ xs: 'column', sm: 'row' }}
         sx={{ mb: { xs: 3, md: 5 } }}
       >
-        {/*<PostSearch*/}
-        {/*  query={debouncedQuery}*/}
-        {/*  results={searchResults}*/}
-        {/*  onSearch={handleSearch}*/}
-        {/*  loading={searchLoading}*/}
-        {/*  hrefItem={(title: string) => paths.dashboard.post.details(title)}*/}
-        {/*/>*/}
-
         <PostSort sort={sortBy} onSort={handleSortBy} sortOptions={POST_SORT_OPTIONS} />
       </Stack>
-
-      {/*<Tabs*/}
-      {/*  value={filters.state.publish}*/}
-      {/*  onChange={handleFilterPublish}*/}
-      {/*  sx={{ mb: { xs: 3, md: 5 } }}*/}
-      {/*>*/}
-      {/*  {['all', 'published', 'draft'].map((tab) => (*/}
-      {/*    <Tab*/}
-      {/*      key={tab}*/}
-      {/*      iconPosition="end"*/}
-      {/*      value={tab}*/}
-      {/*      label={tab}*/}
-      {/*      icon={*/}
-      {/*        <Label*/}
-      {/*          variant={((tab === 'all' || tab === filters.state.publish) && 'filled') || 'soft'}*/}
-      {/*          color={(tab === 'published' && 'info') || 'default'}*/}
-      {/*        >*/}
-      {/*          {tab === 'all' && posts.length}*/}
-
-      {/*          {tab === 'published' && posts.filter((post) => post.publish === 'published').length}*/}
-
-      {/*          {tab === 'draft' && posts.filter((post) => post.publish === 'draft').length}*/}
-      {/*        </Label>*/}
-      {/*      }*/}
-      {/*      sx={{ textTransform: 'capitalize' }}*/}
-      {/*    />*/}
-      {/*  ))}*/}
-      {/*</Tabs>*/}
 
       <PostListHorizontal />
     </DashboardContent>

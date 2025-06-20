@@ -6,23 +6,50 @@ import { CONFIG } from 'src/config-global';
 import { useGetPost } from 'src/actions/blog';
 
 import { PostDetailsView } from 'src/sections/blog/view';
+import { useEffect, useState } from 'react';
+import matter from 'gray-matter';
+import { postModulesByCategory } from '../../utils/postModules';
+import { paths } from '../../routes/paths';
 
 // ----------------------------------------------------------------------
 
-const metadata = { title: `Post details | Dashboard - ${CONFIG.appName}` };
-
 export default function Page() {
-  const { title = '' } = useParams();
+  const { title } = useParams();
+  const [markdown, setMarkdown] = useState('');
+  const [pTitle, setTitle] = useState('');
+  const [info, setInfo] = useState<{ [key: string]: any }>(null);
 
-  const { post, postLoading, postError } = useGetPost(title);
+  useEffect(() => {
+    const fetchPost = async () => {
+      const matchPost = Object.entries(postModulesByCategory.javascript).find(([path, loader]) =>
+        path.includes(`${title}.md`)
+      );
+
+      if (!matchPost) {
+        setMarkdown('파일을 찾을 수 없습니다');
+        return;
+      }
+
+      const [path, loader] = matchPost;
+      const raw = await loader();
+      const { data, content } = matter(raw);
+      setTitle(data.title);
+      console.log('data: ', data);
+      setInfo(data);
+      setMarkdown(content);
+
+      console.log('content: ', content);
+    };
+    fetchPost();
+  }, [title]);
 
   return (
     <>
       <Helmet>
-        <title> {metadata.title}</title>
+        <title> {`${info?.title ?? ''} | ${CONFIG.appName}`}</title>
       </Helmet>
 
-      <PostDetailsView post={post} loading={postLoading} error={postError} />
+      <PostDetailsView info={info} post={markdown} backLink={paths.javascript.root} />
     </>
   );
 }

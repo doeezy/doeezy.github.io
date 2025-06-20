@@ -1,17 +1,8 @@
 import { paths } from '../routes/paths';
-import matter from 'gray-matter';
-
-// 글 목록 스캔
-const posts = {
-  javascriptPosts: import.meta.glob('/src/pages-post/javascript/*.md', { as: 'raw' }),
-  reactPosts: import.meta.glob('/src/pages-post/react/*.md', { as: 'raw' }),
-  vuejsPosts: import.meta.glob('/src/pages-post/vuejs/*.md', { as: 'raw' }),
-  nuxtjsPosts: import.meta.glob('/src/pages-post/nuxtjs/*.md', { as: 'raw' }),
-  keycloakPosts: import.meta.glob('/src/pages-post/keycloak/*.md', { as: 'raw' }),
-};
+import { postModulesByCategory } from '../utils/postModules';
 
 const getPosts = (target: string) => {
-  const loaded: any[] = Object.entries(posts[`${target}Posts`]).map(([path, loader]) => {
+  const loaded: any[] = Object.entries(postModulesByCategory[target]).map(([path, loader]) => {
     const filename = path.split('/').pop();
     return filename.substring(0, filename.lastIndexOf('.')); // 확장자 제거
   });
@@ -19,7 +10,7 @@ const getPosts = (target: string) => {
   return loaded.map((title: string) => {
     return {
       title: title,
-      path: paths[target].root,
+      path: `/${target}/${title}`,
     };
   });
 };

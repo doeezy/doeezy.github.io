@@ -8,7 +8,7 @@ export type IPostFilters = {
 
 export type IPostHero = {
   title: string;
-  coverUrl: string;
+  coverUrl?: string;
   createdAt?: IDateValue;
   author?: { name: string; avatarUrl: string };
 };

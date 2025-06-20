@@ -7,15 +7,13 @@ import { PostItemSkeleton } from './post-skeleton';
 import { PostItemHorizontal } from './post-item-horizontal';
 import {useEffect, useState} from "react";
 import matter from "gray-matter";
+import {postModules} from "../../utils/postModules";
 
 // ----------------------------------------------------------------------
 
 type Props = {
   loading?: boolean;
 };
-
-// 글 목록 스캔
-const modules = import.meta.glob('/src/pages-post/*/*.md', { as: 'raw' });
 
 export function PostListHorizontal({ loading }: Props) {
   const renderLoading = <PostItemSkeleton variant="horizontal" />;
@@ -24,7 +22,7 @@ export function PostListHorizontal({ loading }: Props) {
   useEffect(() => {
     const loadPosts = async () => {
       const loaded: any[] = await Promise.all(
-        Object.entries(modules).map(async ([path, loader]) => {
+        Object.entries(postModules).map(async ([path, loader]) => {
           const raw = await loader();
           const { data } = matter(raw);
           const filename = path.split("/").pop();

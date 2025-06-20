@@ -1,6 +1,9 @@
 ---
 title: 개념
 date: 2025-06-16
+tags:
+  - javascript
+  - frontend
 ---
 
 ### JavaScript가 뭔데?
