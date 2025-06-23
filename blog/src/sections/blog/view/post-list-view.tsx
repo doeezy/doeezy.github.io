@@ -1,20 +1,10 @@
-import type { IPostFilters, IPostItem } from 'src/types/blog';
-
 import { useCallback, useState } from 'react';
 import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
 
 import { paths } from 'src/routes/paths';
-import { RouterLink } from 'src/routes/components';
-
-import { useDebounce } from 'src/hooks/use-debounce';
-import { useSetState } from 'src/hooks/use-set-state';
-
-import { orderBy } from 'src/utils/helper';
 
 import { POST_SORT_OPTIONS } from 'src/_mock';
 import { DashboardContent } from 'src/layouts/main';
-import { Iconify } from 'src/components/iconify';
 import { CustomBreadcrumbs } from 'src/components/custom-breadcrumbs';
 
 import { PostSort } from '../post-sort';
@@ -29,32 +19,9 @@ type Props = {
 export function PostListView({ category }: Props) {
   const [sortBy, setSortBy] = useState('latest');
 
-  const [searchQuery, setSearchQuery] = useState('');
-
-  const debouncedQuery = useDebounce(searchQuery);
-
-  // const { posts, postsLoading } = useGetPosts();
-  //
-  // const { searchResults, searchLoading } = useSearchPosts(debouncedQuery);
-
-  const filters = useSetState<IPostFilters>({ publish: 'all' });
-
-  //const dataFiltered = applyFilter({ inputData: posts, filters: filters.state, sortBy });
-
   const handleSortBy = useCallback((newValue: string) => {
     setSortBy(newValue);
   }, []);
-
-  const handleSearch = useCallback((inputValue: string) => {
-    setSearchQuery(inputValue);
-  }, []);
-
-  const handleFilterPublish = useCallback(
-    (event: React.SyntheticEvent, newValue: string) => {
-      filters.setState({ publish: newValue });
-    },
-    [filters]
-  );
 
   return (
     <DashboardContent>
@@ -86,33 +53,3 @@ export function PostListView({ category }: Props) {
     </DashboardContent>
   );
 }
-
-// ----------------------------------------------------------------------
-
-type ApplyFilterProps = {
-  inputData: IPostItem[];
-  filters: IPostFilters;
-  sortBy: string;
-};
-
-const applyFilter = ({ inputData, filters, sortBy }: ApplyFilterProps) => {
-  const { publish } = filters;
-
-  if (sortBy === 'latest') {
-    inputData = orderBy(inputData, ['createdAt'], ['desc']);
-  }
-
-  if (sortBy === 'oldest') {
-    inputData = orderBy(inputData, ['createdAt'], ['asc']);
-  }
-
-  // if (sortBy === 'popular') {
-  //   inputData = orderBy(inputData, ['totalViews'], ['desc']);
-  // }
-
-  // if (publish !== 'all') {
-  //   inputData = inputData.filter((post) => post.publish === publish);
-  // }
-
-  return inputData;
-};
