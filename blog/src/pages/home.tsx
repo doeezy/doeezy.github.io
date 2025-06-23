@@ -1,21 +1,19 @@
-import {useLocation, useNavigate} from "react-router-dom";
-import {useEffect} from "react";
+import { CONFIG } from '../config-global';
+import { Helmet } from 'react-helmet-async';
+import { PostListView } from '../sections/blog/view';
 
 // ----------------------------------------------------------------------
 
+const metadata = { title: `Home | ${CONFIG.appName}` };
+
 export default function Page() {
-  const location = useLocation()
-  const navigator = useNavigate()
-
-  // useEffect(() => {
-  //   if(location.pathname === "/") {
-  //     navigator('/dashboard');
-  //   }
-  // }, [location.pathname, navigator])
-
   return (
     <>
-      doeezy`s blog
+      <Helmet>
+        <title> {metadata.title}</title>
+      </Helmet>
+
+      <PostListView category="all" />
     </>
   );
 }

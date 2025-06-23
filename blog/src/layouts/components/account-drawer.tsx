@@ -23,7 +23,7 @@ import { Iconify } from 'src/components/iconify';
 import { Scrollbar } from 'src/components/scrollbar';
 import { AnimateAvatar } from 'src/components/animate';
 
-import { useMockedUser } from "../../auth/hooks/use-mocked-user";
+import { useMockedUser } from '../../auth/hooks/use-mocked-user';
 
 import { UpgradeBlock } from './nav-upgrade';
 import { AccountButton } from './account-button';
@@ -61,7 +61,11 @@ export function AccountDrawer({ data = [], sx, ...other }: AccountDrawerProps) {
   const handleClickItem = useCallback(
     (path: string) => {
       handleCloseDrawer();
-      router.push(path);
+      if (path.startsWith('http://') || path.startsWith('https://')) {
+        window.open(path);
+      } else {
+        router.push(path);
+      }
     },
     [handleCloseDrawer, router]
   );
@@ -107,7 +111,7 @@ export function AccountDrawer({ data = [], sx, ...other }: AccountDrawerProps) {
         </IconButton>
 
         <Scrollbar>
-          <Stack alignItems="center" sx={{ pt: 8 }}>
+          <Stack alignItems="center" sx={{ pt: 8, pb: 3 }}>
             {renderAvatar}
 
             <Typography variant="subtitle1" noWrap sx={{ mt: 2 }}>
@@ -119,32 +123,6 @@ export function AccountDrawer({ data = [], sx, ...other }: AccountDrawerProps) {
             </Typography>
           </Stack>
 
-          <Stack direction="row" spacing={1} flexWrap="wrap" justifyContent="center" sx={{ p: 3 }}>
-            {[...Array(3)].map((_, index) => (
-              <Tooltip
-                key={_mock.fullName(index + 1)}
-                title={`Switch to: ${_mock.fullName(index + 1)}`}
-              >
-                <Avatar
-                  alt={_mock.fullName(index + 1)}
-                  src={_mock.image.avatar(index + 1)}
-                  onClick={() => {}}
-                />
-              </Tooltip>
-            ))}
-
-            <Tooltip title="Add account">
-              <IconButton
-                sx={{
-                  bgcolor: varAlpha(theme.vars.palette.grey['500Channel'], 0.08),
-                  border: `dashed 1px ${varAlpha(theme.vars.palette.grey['500Channel'], 0.32)}`,
-                }}
-              >
-                <Iconify icon="mingcute:add-line" />
-              </IconButton>
-            </Tooltip>
-          </Stack>
-
           <Stack
             sx={{
               py: 3,
@@ -154,14 +132,10 @@ export function AccountDrawer({ data = [], sx, ...other }: AccountDrawerProps) {
             }}
           >
             {data.map((option) => {
-              const rootLabel = pathname.includes('/dashboard') ? 'Home' : 'Dashboard';
-
-              const rootHref = pathname.includes('/dashboard') ? '/' : paths.dashboard.root;
-
               return (
                 <MenuItem
                   key={option.label}
-                  onClick={() => handleClickItem(option.label === 'Home' ? rootHref : option.href)}
+                  onClick={() => handleClickItem(option.href)}
                   sx={{
                     py: 1,
                     color: 'text.secondary',
@@ -172,7 +146,7 @@ export function AccountDrawer({ data = [], sx, ...other }: AccountDrawerProps) {
                   {option.icon}
 
                   <Box component="span" sx={{ ml: 2 }}>
-                    {option.label === 'Home' ? rootLabel : option.label}
+                    {option.label}
                   </Box>
 
                   {option.info && (
@@ -184,10 +158,6 @@ export function AccountDrawer({ data = [], sx, ...other }: AccountDrawerProps) {
               );
             })}
           </Stack>
-
-          <Box sx={{ px: 2.5, py: 3 }}>
-            <UpgradeBlock />
-          </Box>
         </Scrollbar>
       </Drawer>
     </>

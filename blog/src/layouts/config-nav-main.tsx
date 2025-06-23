@@ -17,7 +17,6 @@ const getPosts = async (target: string) => {
     })
   );
 
-  console.log('loaded: ', loaded);
   return loaded.map((load: any) => {
     return {
       title: load.title,

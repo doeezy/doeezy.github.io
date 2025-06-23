@@ -4,9 +4,9 @@ import { _mock } from 'src/_mock';
 export function useMockedUser() {
   const user = {
     id: '8864c717-587d-472a-929a-8e5f298024da-0',
-    displayName: 'Jaydon Frankie',
-    email: 'demo@minimals.cc',
-    photoURL: _mock.image.avatar(24),
+    displayName: 'Do Heejung',
+    email: 'dohxxzun@gmail.com',
+    photoURL: '/assets/images/profile.jpg',
     phoneNumber: _mock.phoneNumber(1),
     country: _mock.countryNames(1),
     address: '90210 Broadway Blvd',

@@ -1,44 +1,63 @@
-import type { IPostItem } from 'src/types/blog';
-
 import Box from '@mui/material/Box';
 import Pagination, { paginationClasses } from '@mui/material/Pagination';
 
 import { PostItemSkeleton } from './post-skeleton';
 import { PostItemHorizontal } from './post-item-horizontal';
-import {useEffect, useState} from "react";
-import matter from "gray-matter";
-import {postModules} from "../../utils/postModules";
+import { useEffect, useState } from 'react';
+import matter from 'gray-matter';
+import { postModules, postModulesByCategory } from '../../utils/postModules';
 
 // ----------------------------------------------------------------------
 
 type Props = {
+  category: string;
   loading?: boolean;
+  sortBy?: string;
 };
 
-export function PostListHorizontal({ loading }: Props) {
+export function PostListHorizontal({ category, loading, sortBy }: Props) {
   const renderLoading = <PostItemSkeleton variant="horizontal" />;
   const [posts, setPosts] = useState<Array<any>>([]);
+  const [sortPosts, setSortPosts] = useState<Array<any>>([]);
 
   useEffect(() => {
     const loadPosts = async () => {
+      const targetModules = category === 'all' ? postModules : postModulesByCategory[category];
       const loaded: any[] = await Promise.all(
-        Object.entries(postModules).map(async ([path, loader]) => {
+        Object.entries(targetModules).map(async ([path, loader]) => {
           const raw = await loader();
           const { data } = matter(raw);
-          const filename = path.split("/").pop();
-          return { ...data, filename};
+          const filename = path.split('/').pop();
+          return { ...data, filename };
         })
-      )
+      );
 
-      // 날짜 순으로 정렬
-      loaded.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
       setPosts(loaded);
-    }
+    };
 
     loadPosts();
-  }, [])
+  }, []);
 
-  const renderList = posts.map((post) => <PostItemHorizontal key={post.title} post={post} />);
+  useEffect(() => {
+    setSortItems();
+  }, [sortBy, posts]);
+
+  // 날짜 순으로 정렬
+  const setSortItems = () => {
+    if (sortBy === 'latest') {
+      setSortPosts(() => {
+        return [...posts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+      });
+    } else {
+      setSortPosts(() => {
+        return [...posts].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+      });
+    }
+  };
+
+  const renderList = sortPosts.map((post) => (
+    <PostItemHorizontal key={post.filename} post={post} category={category} />
+  ));
 
   return (
     <>

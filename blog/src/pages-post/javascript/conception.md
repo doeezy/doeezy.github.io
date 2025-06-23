@@ -1,6 +1,7 @@
 ---
 title: 개념
-date: 2025-06-16
+menu: javascript
+date: 2025-01-01
 tags:
   - javascript
   - frontend

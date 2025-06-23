@@ -1,5 +1,6 @@
 ---
 title: 대용량 JSON 파일 요청 API 성능 개선
+menu: troubleshooting
 date: 2025-06-16
 tags:
 - backend
