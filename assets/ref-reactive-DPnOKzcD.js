@@ -1,5 +1,5 @@
 const n=`---
-title: [Vue3] ref & reactive
+title: ref & reactive
 menu: vuejs
 date: 2025-01-01
 tags:

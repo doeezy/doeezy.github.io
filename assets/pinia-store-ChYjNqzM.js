@@ -1,5 +1,5 @@
 const n=`---
-title: [Vue3] store(Pinia)
+title: store(Pinia)
 menu: vuejs
 date: 2025-01-01
 tags:
