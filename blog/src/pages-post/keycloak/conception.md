@@ -17,10 +17,10 @@ ID 및 액세스 관리 솔루션을 제공하는 오픈소스.
 <br>
 <br>
 
-# 🚀 Keycloak의 주요 Authentication Flow 종류
+## 🚀 Keycloak의 주요 Authentication Flow 종류
 <br>
 
-## ⭐ Authorization Code Flow (권장)
+### ⭐ Authorization Code Flow (권장)
 
 - OAuth 2.0 및 OpenID Connect에서 가장 많이 사용되는 흐름
 - 보안성 매우 높음 (PKCE도 함께 사용 가능)
@@ -143,6 +143,7 @@ ID 및 액세스 관리 솔루션을 제공하는 오픈소스.
 
 <br>
 <br>
+
 ## ⭐ Resource Owner Password Credentials Flow (ROPC)
 
 - 클라이언트에서 사용자의 ID/PW를 직접 받아 Keycloak에 인증 요청
@@ -215,22 +216,24 @@ ID 및 액세스 관리 솔루션을 제공하는 오픈소스.
 
 <br>
 <br>
-# 🚀 Client 설정 시 주의점
+
+## 🚀 Client 설정 시 주의점
+
 <br>
 
-## ⭐ `Access Type`
+### ⭐ `Access Type`
 
 - confidential: 서버 사이드 앱 용, client secret 필요
 - public: SPA나 모바일 앱용, 시크릿 없음
 - bearer-only: 토큰만 받고 직접 로그인은 안함 (API 서버용)
 
-⚠️ Keycloak v22~ 부터는 Access Type을 직접 설정하는 대신 조합으로 대신함
+⚠️Keycloak v22~ 부터는 Access Type을 직접 설정하는 대신 조합으로 대신함
 
 - public > `Client Authentication = OFF`
 - confidential > `Client Authentication = ON` + `Service Accounts Enabled = OFF`
 - bearer-only > `Client Authentication = ON` + `Standard Flow Enabled = OFF` + `Direct Access Grants Enabled = OFF`
 
-🔥 핵심 설정
+## 🔥 핵심 설정
 
 - **Client authentication**:
   - `ON`이면 confidential처럼 작동 (시크릿 필요)
@@ -245,7 +248,7 @@ ID 및 액세스 관리 솔루션을 제공하는 오픈소스.
 <br>
 <br>
 
-## ⭐ `Valid Redirect URIs`
+### ⭐ `Valid Redirect URIs`
 
 반드시 명확하게 지정해야 함. 와일드 카드(`*`)는 최소화
 
@@ -253,7 +256,7 @@ ID 및 액세스 관리 솔루션을 제공하는 오픈소스.
 <br>
 
 
-## ⭐ `Web Origins`
+### ⭐ `Web Origins`
 
 CORS 에러 방지를 위해 클라이언트 도메인 명시해야 함
 
@@ -261,7 +264,7 @@ CORS 에러 방지를 위해 클라이언트 도메인 명시해야 함
 <br>
 
 
-# 🚀 OIDC Discovery Endpoint
+## 🚀 OIDC Discovery Endpoint
 
 클라이언트 앱은 Keycloak의 `.well-known` URL을 통해 자동 설정 가능
 
@@ -270,7 +273,7 @@ CORS 에러 방지를 위해 클라이언트 도메인 명시해야 함
 <br>
 <br>
 
-# 🚀 Client Scope / Mapper
+## 🚀 Client Scope / Mapper
 
 - 사용자의 속성(email, username 등)을 토큰에 포함시키기 위한 설정
 - `ID Token` / `Access Token`에 클레임 추가하려면 꼭 설정해야함

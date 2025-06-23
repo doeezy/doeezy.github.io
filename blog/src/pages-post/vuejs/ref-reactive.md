@@ -1,5 +1,5 @@
 ---
-title: [Vue3] ref & reactive
+title: ref & reactive
 menu: vuejs
 date: 2025-01-01
 tags:
@@ -8,7 +8,7 @@ tags:
 - frontend
 ---
 
-# 🔍 Vue3 반응형 데이터
+## 🔍 Vue3 반응형 데이터
 Vue3 Composition API에서 반응형 Data를 사용하는 방법으로는 ref와 reactive가 있다.
 
 ```jsx
@@ -31,7 +31,7 @@ const countReactive = reactive({});
 </script>
 ```
 
-## ⭐ ref()
+### ⭐ ref()
 
 Vue3에서 추가된 반응형 데이터를 사용할때 쓰이는 Composition API이며 **원시타입일때 주로 사용한다. (String, Number, Boolean, etc…)**
 
@@ -56,7 +56,7 @@ const refCount = ref(0);
 
 <br>
 
-## ⭐ reactive()
+### ⭐ reactive()
 
 reactive()는 ref()와 다르게 **원시 타입을 사용할 수 없다. object, Array만 사용 가능하다.**
 
@@ -80,7 +80,7 @@ const calculator = reactive({
 
 ---
 
-# 🔍 ref()와 reactive() 의 차이점
+## 🔍 ref()와 reactive() 의 차이점
 
 - ref()에서는 String, Number, Object 어떤 타입이든 사용 가능하다.
 - reactive()에서는 Object 타입만 가능하다. (Object, Array, Map, Set)

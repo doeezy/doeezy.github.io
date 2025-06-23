@@ -1,5 +1,5 @@
 ---
-title: [Vue3] store(Pinia)
+title: store(Pinia)
 menu: vuejs
 date: 2025-01-01
 tags:
@@ -8,7 +8,7 @@ tags:
 - frontend
 ---
 
-# 🔍 기본
+## 🔍 기본
 
 ```jsx
 import { defineStore } from 'pinia'
@@ -30,7 +30,7 @@ export const useAlertsStore = defineStore('alerts', {
 
 ---
 
-# 🔍 옵션 스토어
+## 🔍 옵션 스토어
 
 ```jsx
 export const useCounterStore = defineStore('counter', {
@@ -52,7 +52,7 @@ export const useCounterStore = defineStore('counter', {
 
 ---
 
-# 🔍 셋업 스토어
+## 🔍 셋업 스토어
 
 ```jsx
 export const useCounterStore = defineStore('counter', () => {
@@ -97,7 +97,7 @@ export const useSearchFilters = defineStore('search-filters', () => {
 
 ---
 
-# 🔍 스토어 사용
+## 🔍 스토어 사용
 
 `<script setup>` 구성요소 내에서 use…Store()가 호출될 때 까지 스토어가 생성되지 않으므로 스토어를 정의해준다.
 
@@ -136,7 +136,7 @@ setTimeout(() => {
 
 ---
 
-# 🔍 저장소에서 드스트럭처링(비구조화)
+## 🔍 저장소에서 드스트럭처링(비구조화)
 
 반응형을 유지하면서 스토어에서 속성을 추출하려면, **storeRefs()**를 사용해야한다. 이것은 스토어의 상태만 사용하고 액션을 호출하지 않을 때 유용하다. 스토어 자체에도 바인딩 되므로 스토어에서 직접 액션을 구조화할 수 있다.
 
@@ -157,7 +157,7 @@ const { increment } = store
 
 ---
 
-# 🔍 Options API 에서의 Pinia 스토어 사용
+## 🔍 Options API 에서의 Pinia 스토어 사용
 
 아직 setup 컴포넌트를 사용하지 않는 경우에는 “맵 헬퍼”로 피니아를 사용할 수 있다.
 
