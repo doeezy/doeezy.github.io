@@ -22,7 +22,7 @@ export default defineConfig({
     //   },
     // }),
   ],
-  base: '/blog/',
+  base: '/',
   optimizeDeps: {
     include: ['buffer'],
   },

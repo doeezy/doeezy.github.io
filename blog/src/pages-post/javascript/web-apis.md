@@ -1,5 +1,6 @@
 ---
 title: Web APIs
+menu: javascript
 date: 2025-06-16
 tags:
   - javascript

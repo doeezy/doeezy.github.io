@@ -1,9 +1,6 @@
-import type { IPostItem, IPostFilters } from 'src/types/blog';
+import type { IPostFilters, IPostItem } from 'src/types/blog';
 
-import { useState, useCallback } from 'react';
-
-import Tab from '@mui/material/Tab';
-import Tabs from '@mui/material/Tabs';
+import { useCallback, useState } from 'react';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 
@@ -17,19 +14,19 @@ import { orderBy } from 'src/utils/helper';
 
 import { POST_SORT_OPTIONS } from 'src/_mock';
 import { DashboardContent } from 'src/layouts/main';
-import { useGetPosts, useSearchPosts } from 'src/actions/blog';
-
-import { Label } from 'src/components/label';
 import { Iconify } from 'src/components/iconify';
 import { CustomBreadcrumbs } from 'src/components/custom-breadcrumbs';
 
 import { PostSort } from '../post-sort';
-import { PostSearch } from '../post-search';
 import { PostListHorizontal } from '../post-list-horizontal';
 
 // ----------------------------------------------------------------------
 
-export function PostListView() {
+type Props = {
+  category: string;
+};
+
+export function PostListView({ category }: Props) {
   const [sortBy, setSortBy] = useState('latest');
 
   const [searchQuery, setSearchQuery] = useState('');
@@ -62,22 +59,16 @@ export function PostListView() {
   return (
     <DashboardContent>
       <CustomBreadcrumbs
-        heading="List"
+        heading="전체"
         links={[
-          { name: 'Dashboard', href: paths.dashboard.root },
-          { name: 'Blog', href: paths.dashboard.post.root },
-          { name: 'List' },
+          { name: 'Javascript', href: paths.javascript.root },
+          { name: 'React', href: paths.react.root },
+          { name: 'Vue.js', href: paths.vuejs.root },
+          { name: 'Nuxt.js', href: paths.nuxtjs.root },
+          { name: 'Keycloak', href: paths.keycloak.root },
+          { name: 'Troubleshooting', href: paths.troubleshooting.root },
         ]}
-        action={
-          <Button
-            component={RouterLink}
-            href={paths.dashboard.post.new}
-            variant="contained"
-            startIcon={<Iconify icon="mingcute:add-line" />}
-          >
-            New post
-          </Button>
-        }
+        activeLast={true}
         sx={{ mb: { xs: 3, md: 5 } }}
       />
 
@@ -91,7 +82,7 @@ export function PostListView() {
         <PostSort sort={sortBy} onSort={handleSortBy} sortOptions={POST_SORT_OPTIONS} />
       </Stack>
 
-      <PostListHorizontal />
+      <PostListHorizontal sortBy={sortBy} category={category} />
     </DashboardContent>
   );
 }
@@ -115,13 +106,13 @@ const applyFilter = ({ inputData, filters, sortBy }: ApplyFilterProps) => {
     inputData = orderBy(inputData, ['createdAt'], ['asc']);
   }
 
-  if (sortBy === 'popular') {
-    inputData = orderBy(inputData, ['totalViews'], ['desc']);
-  }
+  // if (sortBy === 'popular') {
+  //   inputData = orderBy(inputData, ['totalViews'], ['desc']);
+  // }
 
-  if (publish !== 'all') {
-    inputData = inputData.filter((post) => post.publish === publish);
-  }
+  // if (publish !== 'all') {
+  //   inputData = inputData.filter((post) => post.publish === publish);
+  // }
 
   return inputData;
 };
