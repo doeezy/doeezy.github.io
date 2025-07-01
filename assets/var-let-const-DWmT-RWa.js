@@ -10,7 +10,8 @@ tags:\r
 ---\r
 \r
 \r
-# 🚀 var, let, const 특징과 차이\r
+# 🧠 var, let, const 특징과 차이\r
+<br>\r
 \r
 |  | \`var\` | \`let\` | \`const\` |\r
 | --- | --- | --- | --- |\r
@@ -24,7 +25,7 @@ tags:\r
 \r
 ---\r
 \r
-## ⭐ Scope의 차이\r
+## ⭐ Scope의 차이\r
 \r
 \`\`\`jsx\r
 if(true) {\r
@@ -38,14 +39,14 @@ console.log(b); // ReferenceError\r
 console.log(c); // ReferenceError\r
 \`\`\`\r
 \r
-📍 \`var\` 은 if문 같은 블록 구분을 무시하고 **함수 전체에서 살아있음**\r
+📍 \`var\` 은 if문 같은 블록 구분을 무시하고 **함수 전체에서 살아있음**\r
 \r
-📍 \`let\`, \`const\` 는 **블록 내부에서만 유효**\r
+📍 \`let\`, \`const\` 는 **블록 내부에서만 유효**\r
 \r
 <br>\r
 \r
 \r
-## ⭐ 호이스팅\r
+## ⭐ 호이스팅\r
 \r
 \`\`\`jsx\r
 console.log(a); // undefined\r
@@ -55,13 +56,13 @@ console,log(b);\r
 let b = 20;\r
 \`\`\`\r
 \r
-📍 \`var\` 은 선언이 끌어올려져서 \`undefined\`로 뜸 (초기화 안됨 ❌)\r
+📍 \`var\` 은 선언이 끌어올려져서 \`undefined\`로 뜸 (초기화 안됨 ❌)\r
 \r
-📍 \`let\`, \`const\`도 호이스팅은 되는데 초기화 전까지는 TDZ(Temporal Dead Zone) 라는 **접근 불가 구간**에 있음 → 그래서 오류\r
+📍 \`let\`, \`const\`도 호이스팅은 되는데 초기화 전까지는 TDZ(Temporal Dead Zone) 라는 **접근 불가 구간**에 있음 → 그래서 오류\r
 \r
 ---\r
 \r
-### 💣 💥 호이스팅이 뭔데?\r
+### 💣💥 호이스팅이 뭔데?\r
 \r
 **변수 선언**과 **함수 선언**이 실행 전에 코드의 맨 위로 끌어올려지는 현상\r
 \r
@@ -86,7 +87,7 @@ x = 10;\r
 \r
 <br>\r
 \r
-🔥 함수 호이스팅은 또 다름\r
+🔥 함수 호이스팅은 또 다름\r
 \r
 \`\`\`jsx\r
 foo(); // 함수 호출 가능\r
@@ -97,7 +98,7 @@ function foo() {\r
 \r
 함수 선언문은 전체 통째로 호이스팅 됨. 그래서 선언 전에 호출해도 문제 없음 ❌\r
 \r
-💥 하지만 ! 함수 표현식은 \`var bar\`만 호이스팅되고(=변수만 호이스팅 됨) 값은 undefined라서 호출 시 에러 발생함\r
+💥 하지만 ! 함수 표현식은 \`var bar\`만 호이스팅되고(=변수만 호이스팅 됨) 값은 undefined라서 호출 시 에러 발생함\r
 \r
 \`\`\`jsx\r
 bar(); // TypeError\r
@@ -133,7 +134,7 @@ foo = () => {\r
 \r
 \r
 \r
-## ⭐ const는 진짜 불변?\r
+## ⭐ const는 진짜 불변?\r
 \r
 \`\`\`jsx\r
 const obj = { name: "망고" };\r
@@ -142,11 +143,11 @@ obj.name = "사과"; // 가능 !\r
 obj = { name: "딸기" }; // TypeError\r
 \`\`\`\r
 \r
-📍 **const는 변수 자체의 재할당을 막는 것.** 그 안에 든 객체나 배열은 바꿀 수 있음 → 얕은 불변성\r
+📍 **const는 변수 자체의 재할당을 막는 것.** 그 안에 든 객체나 배열은 바꿀 수 있음 → 얕은 불변성\r
 \r
 <br>\r
 \r
-## ⭐ var 은 왜 비추천?\r
+## ⭐ var 은 왜 비추천?\r
 \r
 - 스코프가 널널해서 실수가 잦음\r
 - 재선언 가능해서 변수 오염 가능성이 높음\r

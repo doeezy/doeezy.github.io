@@ -7,11 +7,11 @@ tags:\r
   - frontend\r
 ---\r
 \r
-### 💣💥 이게 뭔데?\r
+# 🧠 Event Loop?\r
 \r
 ---\r
 \r
-JS가 \`싱글 스레드 인데도 비동기처럼 처리할 수 있게 해주는 매커니즘\` 임\r
+JS가 **싱글 스레드 인데도 비동기처럼 처리할 수 있게 해주는 매커니즘** 임\r
 \r
 말하자면 **큐 관리인** 임\r
 \r
@@ -21,7 +21,7 @@ JS가 \`싱글 스레드 인데도 비동기처럼 처리할 수 있게 해주�
 \r
 <br>\r
 \r
-### ⭐ Event Loop는 어디에 속해있는 애임?\r
+## ⭐ Event Loop는 어디에 속해있는 애임?\r
 \r
 ---\r
 \r
@@ -37,7 +37,7 @@ Event Loop는 JS 언어 내부에도 없고\r
 \r
 <br>\r
 \r
-### ⭐ JS 실행 환경은 기본적으로 Event Loop를 가지고 있는거임?\r
+## ⭐ JS 실행 환경은 기본적으로 Event Loop를 가지고 있는거임?\r
 \r
 ---\r
 \r
@@ -49,7 +49,7 @@ JS 실행 환경이면 기본적으로 갖고 있어야 함\r
 \r
 <br>\r
 \r
-📌 JS 실행 환경이 뭔데?\r
+### 📌 JS 실행 환경이 뭔데?\r
 \r
 **"JS 코드를 실행시켜주는 시스템"**\r
 \r
@@ -61,7 +61,7 @@ JS 실행 환경이면 기본적으로 갖고 있어야 함\r
 \r
 <br>\r
 \r
-📌그럼 걔네는 Event Loop를 어떻게 제공함?\r
+### 📌그럼 걔네는 Event Loop를 어떻게 제공함?\r
 \r
 ---\r
 \r
@@ -76,7 +76,7 @@ JS 실행 환경이면 기본적으로 갖고 있어야 함\r
 <br>\r
 <br>\r
 \r
-### 🎃 구성 요소\r
+## 📦 구성 요소\r
 \r
 ---\r
 \r
@@ -88,7 +88,7 @@ JS 실행 환경이면 기본적으로 갖고 있어야 함\r
 \r
 \`Event Loop\` → Call Stack이 비면 Callback Queue에서 콜백 꺼내서 실행 시킴\r
 \r
-⭐ **Task Queue 말고도 Microtask Queue가 있음**\r
+### ⭐ **Task Queue 말고도 Microtask Queue가 있음**\r
 \r
 Promise \`.then()\` 이나 \`async/awiat\` 의 콜백은 **Microtask Queue에 들어감**\r
 \r
@@ -105,7 +105,7 @@ async function test() {\r
 <br>\r
 <br>\r
 \r
-### 🎃 구조\r
+## 🎃 구조\r
 \r
 ---\r
 \r
@@ -118,15 +118,15 @@ async function test() {\r
 <br>\r
 <br>\r
 \r
-### 🎃 흐름 요약\r
+## 📈 흐름 요약\r
 \r
-\`\`\`\r
+\`\`\`\`textplain\r
 [JS 실행] ─────→ 비동기 작업 발견  ─────┐\r
-    ↓                                 ↓\r
-나머지 코드 실행                백그라운드에서 실행\r
-    ↓                                 ↓\r
-콜백 큐          ←───────     작업 끝나면 콜백 등록\r
+    ↓                                             ↓\r
+나머지 코드 실행                            백그라운드에서 실행\r
+    ↓                                             ↓\r
+콜백 큐          ←───────          작업 끝나면 콜백 등록\r
     ↓\r
 [이벤트 루프] → 큐에서 꺼내서 다시 실행\r
-\`\`\`\r
+\`\`\`\`\r
 `;export{n as default};
