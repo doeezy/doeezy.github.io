@@ -18,27 +18,33 @@ const ROOTS = {
 
 export const paths = {
   javascript: {
-    root: '/javascript/list',
+    root: '/javascript',
+    list: '/javascript',
     details: (title: string) => `/javascript/${paramCase(title)}`,
   },
   react: {
-    root: '/react/list',
+    root: '/react',
+    list: '/react/list',
     details: (title: string) => `/react/${paramCase(title)}`,
   },
   vuejs: {
-    root: '/vuejs/list',
+    root: '/vuejs',
+    list: '/vuejs/list',
     details: (title: string) => `/vuejs/${paramCase(title)}`,
   },
   nuxtjs: {
-    root: '/nuxtjs/list',
+    root: '/nuxtjs',
+    list: '/nuxtjs/list',
     details: (title: string) => `/nuxtjs/${paramCase(title)}`,
   },
   keycloak: {
-    root: '/javascript/list',
+    root: '/keycloak',
+    list: '/keycloak/list',
     details: (title: string) => `/keycloak/${paramCase(title)}`,
   },
   troubleshooting: {
-    root: '/troubleshooting/list',
+    root: '/troubleshooting',
+    list: '/troubleshooting/list',
     details: (title: string) => `/troubleshooting/${paramCase(title)}`,
   },
 

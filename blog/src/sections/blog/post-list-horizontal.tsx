@@ -23,6 +23,7 @@ export function PostListHorizontal({ category, loading, sortBy }: Props) {
   const [sortPosts, setSortPosts] = useState<Array<any>>([]);
   const [pagingPosts, setPagingPosts] = useState<Array<any>>([]);
   const [currPage, setCurrPage] = useState<number>(1);
+  const [viewPageCount, setViewPageCount] = useState(1);
 
   useEffect(() => {
     const loadPosts = async () => {
@@ -44,6 +45,9 @@ export function PostListHorizontal({ category, loading, sortBy }: Props) {
 
   useEffect(() => {
     setSortItems();
+    setViewPageCount(() => {
+      return Math.ceil(posts.length / pageSize);
+    });
   }, [sortBy, posts]);
 
   useEffect(() => {
@@ -70,11 +74,14 @@ export function PostListHorizontal({ category, loading, sortBy }: Props) {
 
   const onChangePage = (page: number) => {
     setCurrPage(page);
-    console.log('page: ', page);
   };
 
-  const renderList = pagingPosts.map((post) => (
-    <PostItemHorizontal key={post.filename} post={post} category={category} />
+  const renderList = pagingPosts.map((post, idx) => (
+    <PostItemHorizontal
+      key={`${category}-${idx}-${post.filename}`}
+      post={post}
+      category={category}
+    />
   ));
 
   return (
@@ -87,9 +94,9 @@ export function PostListHorizontal({ category, loading, sortBy }: Props) {
         {loading ? renderLoading : renderList}
       </Box>
 
-      {posts.length > 8 && (
+      {posts.length > 10 && (
         <Pagination
-          count={posts.length}
+          count={viewPageCount}
           sx={{
             mt: { xs: 5, md: 8 },
             [`& .${paginationClasses.ul}`]: { justifyContent: 'center' },
