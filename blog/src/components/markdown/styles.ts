@@ -19,8 +19,8 @@ export const StyledRoot = styled(ReactMarkdown)(({ theme }) => ({
    * Heading & Paragraph
    */
   h1: { ...theme.typography.h1, marginTop: 40, marginBottom: 8, fontSize: '2rem!important' },
-  h2: { ...theme.typography.h2, marginTop: 40, marginBottom: 8, fontSize: '1.7rem!important' },
-  h3: { ...theme.typography.h3, marginTop: 24, marginBottom: 8, fontSize: '1.4rem!important' },
+  h2: { ...theme.typography.h2, marginTop: 40, marginBottom: 8, fontSize: '1.6rem!important' },
+  h3: { ...theme.typography.h3, marginTop: 24, marginBottom: 8, fontSize: '1.45rem!important' },
   h4: { ...theme.typography.h4, marginTop: 24, marginBottom: 8, fontSize: '1.25rem!important' },
   h5: { ...theme.typography.h5, marginTop: 24, marginBottom: 8 },
   h6: { ...theme.typography.h6, marginTop: 24, marginBottom: 8 },
@@ -65,31 +65,29 @@ export const StyledRoot = styled(ReactMarkdown)(({ theme }) => ({
    */
   '& blockquote': {
     lineHeight: 1.5,
-    fontSize: '1.5em',
     margin: '24px auto',
     position: 'relative',
     fontFamily: 'Georgia, serif',
-    padding: theme.spacing(3, 3, 3, 8),
+    padding: theme.spacing(3, 3, 3, 3),
     color: theme.vars.palette.text.secondary,
     borderLeft: `solid 8px ${varAlpha(theme.vars.palette.grey['500Channel'], 0.08)}`,
     [theme.breakpoints.up('md')]: {
       width: '100%',
-      maxWidth: 640,
     },
     '& p': {
       margin: 0,
       fontSize: 'inherit',
       fontFamily: 'inherit',
     },
-    '&::before': {
-      left: 16,
-      top: -8,
-      display: 'block',
-      fontSize: '3em',
-      content: '"\\201C"',
-      position: 'absolute',
-      color: theme.vars.palette.text.disabled,
-    },
+    // '&::before': {
+    //   left: 16,
+    //   top: -8,
+    //   display: 'block',
+    //   fontSize: '3em',
+    //   content: '"\\201C"',
+    //   position: 'absolute',
+    //   color: theme.vars.palette.text.disabled,
+    // },
   },
   /**
    * Code inline
