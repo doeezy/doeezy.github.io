@@ -9,6 +9,8 @@ import { CustomBreadcrumbs } from 'src/components/custom-breadcrumbs';
 
 import { PostSort } from '../post-sort';
 import { PostListHorizontal } from '../post-list-horizontal';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 
 // ----------------------------------------------------------------------
 
@@ -23,8 +25,8 @@ export function PostListView({ category }: Props) {
     setSortBy(newValue);
   }, []);
 
-  return (
-    <DashboardContent>
+  const listHeader =
+    category === 'all' ? (
       <CustomBreadcrumbs
         heading="전체"
         links={[
@@ -38,6 +40,21 @@ export function PostListView({ category }: Props) {
         activeLast={true}
         sx={{ mb: { xs: 3, md: 5 } }}
       />
+    ) : (
+      <Box gap={2} display="flex" flexDirection="column">
+        <Box display="flex" alignItems="center">
+          <Box sx={{ flexGrow: 1 }}>
+            <Typography variant="h4" sx={{ mb: 2 }}>
+              전체
+            </Typography>
+          </Box>
+        </Box>
+      </Box>
+    );
+
+  return (
+    <DashboardContent>
+      {listHeader}
 
       <Stack
         spacing={3}

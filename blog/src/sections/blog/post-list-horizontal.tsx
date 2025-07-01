@@ -16,9 +16,14 @@ type Props = {
 };
 
 export function PostListHorizontal({ category, loading, sortBy }: Props) {
+  const pageSize = 10;
+
   const renderLoading = <PostItemSkeleton variant="horizontal" />;
   const [posts, setPosts] = useState<Array<any>>([]);
   const [sortPosts, setSortPosts] = useState<Array<any>>([]);
+  const [pagingPosts, setPagingPosts] = useState<Array<any>>([]);
+  const [currPage, setCurrPage] = useState<number>(1);
+  const [viewPageCount, setViewPageCount] = useState(1);
 
   useEffect(() => {
     const loadPosts = async () => {
@@ -40,7 +45,19 @@ export function PostListHorizontal({ category, loading, sortBy }: Props) {
 
   useEffect(() => {
     setSortItems();
+    setViewPageCount(() => {
+      return Math.ceil(posts.length / pageSize);
+    });
   }, [sortBy, posts]);
+
+  useEffect(() => {
+    const startIndex = (currPage - 1) * pageSize;
+    const endIndex = startIndex + pageSize;
+
+    setPagingPosts(() => {
+      return [...sortPosts].slice(startIndex, endIndex);
+    });
+  }, [currPage, sortPosts]);
 
   // 날짜 순으로 정렬
   const setSortItems = () => {
@@ -55,8 +72,16 @@ export function PostListHorizontal({ category, loading, sortBy }: Props) {
     }
   };
 
-  const renderList = sortPosts.map((post) => (
-    <PostItemHorizontal key={post.filename} post={post} category={category} />
+  const onChangePage = (page: number) => {
+    setCurrPage(page);
+  };
+
+  const renderList = pagingPosts.map((post, idx) => (
+    <PostItemHorizontal
+      key={`${category}-${idx}-${post.filename}`}
+      post={post}
+      category={category}
+    />
   ));
 
   return (
@@ -69,13 +94,14 @@ export function PostListHorizontal({ category, loading, sortBy }: Props) {
         {loading ? renderLoading : renderList}
       </Box>
 
-      {posts.length > 8 && (
+      {posts.length > 10 && (
         <Pagination
-          count={8}
+          count={viewPageCount}
           sx={{
             mt: { xs: 5, md: 8 },
             [`& .${paginationClasses.ul}`]: { justifyContent: 'center' },
           }}
+          onChange={(event: any, page: number) => onChangePage(page)}
         />
       )}
     </>

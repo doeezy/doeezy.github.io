@@ -51,6 +51,7 @@ export const mainRoutes = [
             path: 'javascript',
             children: [
               { element: <JsListPage />, index: true },
+              { path: 'list', element: <JsListPage /> },
               { path: ':title', element: <JsDetailPage /> },
             ],
           },
@@ -58,6 +59,7 @@ export const mainRoutes = [
             path: 'react',
             children: [
               { element: <ReactListPage />, index: true },
+              { path: 'list', element: <ReactListPage /> },
               { path: ':title', element: <ReactDetailPage /> },
             ],
           },
@@ -65,6 +67,7 @@ export const mainRoutes = [
             path: 'vuejs',
             children: [
               { element: <VueListPage />, index: true },
+              { path: 'list', element: <VueListPage /> },
               { path: ':title', element: <VueDetailPage /> },
             ],
           },
@@ -72,6 +75,7 @@ export const mainRoutes = [
             path: 'nuxtjs',
             children: [
               { element: <NuxtListPage />, index: true },
+              { path: 'list', element: <NuxtListPage /> },
               { path: ':title', element: <NuxtDetailPage /> },
             ],
           },
@@ -79,6 +83,7 @@ export const mainRoutes = [
             path: 'keycloak',
             children: [
               { element: <KeycloakListPage />, index: true },
+              { path: 'list', element: <KeycloakListPage /> },
               { path: ':title', element: <KeycloakDetailPage /> },
             ],
           },
@@ -86,6 +91,7 @@ export const mainRoutes = [
             path: 'troubleshooting',
             children: [
               { element: <TroubleListPage />, index: true },
+              { path: 'list', element: <TroubleListPage /> },
               { path: ':title', element: <TroubleDetailPage /> },
             ],
           },

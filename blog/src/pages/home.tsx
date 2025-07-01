@@ -1,6 +1,6 @@
-import { CONFIG } from '../config-global';
+import { CONFIG } from 'src/config-global';
 import { Helmet } from 'react-helmet-async';
-import { PostListView } from '../sections/blog/view';
+import { PostListView } from 'src/sections/blog/view';
 
 // ----------------------------------------------------------------------
 

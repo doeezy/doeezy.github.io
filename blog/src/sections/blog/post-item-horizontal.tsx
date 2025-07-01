@@ -22,14 +22,6 @@ type Props = CardProps & {
 };
 
 export function PostItemHorizontal({ post, category, sx, ...other }: Props) {
-  useEffect(() => {
-    console.log('post: ', post);
-    console.log(
-      paths.dashboard.post.details(
-        post.filename?.substring(0, post.filename.lastIndexOf('.')) ?? ''
-      )
-    );
-  }, []);
   return (
     <>
       <Card sx={{ display: 'flex', ...sx }} {...other}>

@@ -1,12 +1,10 @@
-import { Helmet } from 'react-helmet-async';
-
 import { CONFIG } from 'src/config-global';
-
+import { Helmet } from 'react-helmet-async';
 import { PostListView } from 'src/sections/blog/view';
 
 // ----------------------------------------------------------------------
 
-const metadata = { title: `Post list | Dashboard - ${CONFIG.appName}` };
+const metadata = { title: `Javascript | 전체 글 목록 - ${CONFIG.appName}` };
 
 export default function Page() {
   return (
@@ -15,7 +13,7 @@ export default function Page() {
         <title> {metadata.title}</title>
       </Helmet>
 
-      <PostListView />
+      <PostListView category="javascript" />
     </>
   );
 }

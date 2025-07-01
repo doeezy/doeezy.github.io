@@ -9,7 +9,7 @@ tags:
   - Web-APIs
 ---
 
-### 💣💥 이게 뭔데?
+# 🧠 Web APIs?
 
 ---
 
@@ -17,9 +17,10 @@ tags:
 
 자바스크립트 일부 아님 ❌
 
-### 🎃 그래서 그게 뭔데
-
 ---
+
+## 💣💥 그래서 그게 뭔데
+
 
 ```jsx
 setTimeout(() => console.log("hello"), 1000);
@@ -39,21 +40,25 @@ fetch("https://api.com/data");
 
 이 `fetch()`도 JS가 제공하는게 아니라 **브라우저가 구현한 API임**
 
-### 🎃 대표적인 Web APIs 종류
-
 ---
+
+<br>
+
+## ⭐ 대표적인 Web APIs 종류
+
 
 | Web API 종류 | 예시 기능 |
 | --- | --- |
-| **Timer APIs** | `setTimeout`, `setInterval`, `clearTimeout` |
-| **Network APIs** | `fetch`, `XMLHttpRequest`, WebSocket |
-| **DOM APIs** | `document.querySelector`, `addEventListener`, `innerHTML` |
-| **Storage APIs** | `localStorage`, `sessionStorage`, `IndexedDB` |
-| **기타** | `Geolocation`, `Notification`, `Canvas`, `Web Audio API`, `WebRTC` 등등 |
+| **Timer APIs** | setTimeout, setInterval, clearTimeout |
+| **Network APIs** | fetch, XMLHttpRequest, WebSocket |
+| **DOM APIs** | document.querySelector, addEventListener, innerHTML |
+| **Storage APIs** | localStorage, sessionStorage, IndexedDB |
+| **기타** | Geolocation, Notification, Canvas, Web Audio API, WebRTC 등등 |
 
-### 🎃 이게 왜 중요함?
+<br>
 
----
+## 😮 이게 왜 중요함?
+
 
 JS는 `싱글 스레드`라서 무거운 작업 못함 ❌
 
