@@ -1,7 +1,7 @@
 const n=`---\r
 title: 함수 선언문 vs 함수 표현식 (호이스팅 차이)\r
 menu: javascript\r
-date: 2025-07-01\r
+date: 2025-01-01\r
 tags:\r
   - javascript\r
   - frontend\r

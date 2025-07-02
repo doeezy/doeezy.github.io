@@ -1,7 +1,7 @@
 const n=`---\r
 title: var, let, const, 호이스팅\r
 menu: javascript\r
-date: 2025-06-16\r
+date: 2025-01-01\r
 tags:\r
   - javascript\r
   - frontend\r

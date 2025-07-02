@@ -1,7 +1,7 @@
 const n=`---\r
 title: 스코프(Scope), 스코프 체인(Scope Chain)\r
 menu: javascript\r
-date: 2025-06-16\r
+date: 2025-01-01\r
 tags:\r
   - javascript\r
   - frontend\r
