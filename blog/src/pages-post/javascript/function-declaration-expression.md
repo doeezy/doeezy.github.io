@@ -1,7 +1,7 @@
 ---
 title: 함수 선언문 vs 함수 표현식 (호이스팅 차이)
 menu: javascript
-date: 2025-07-01
+date: 2025-01-01
 tags:
   - javascript
   - frontend

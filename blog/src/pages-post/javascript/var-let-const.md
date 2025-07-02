@@ -1,7 +1,7 @@
 ---
 title: var, let, const, 호이스팅
 menu: javascript
-date: 2025-06-16
+date: 2025-01-01
 tags:
   - javascript
   - frontend

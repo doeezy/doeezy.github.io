@@ -1,7 +1,7 @@
 ---
 title: 스코프(Scope), 스코프 체인(Scope Chain)
 menu: javascript
-date: 2025-06-16
+date: 2025-01-01
 tags:
   - javascript
   - frontend
