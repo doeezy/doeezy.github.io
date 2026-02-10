@@ -6,6 +6,7 @@ import { MainLayout } from "src/layouts/main";
 import { SplashScreen } from 'src/components/loading-screen';
 
 import { mainRoutes } from './main';
+import { errorRoutes } from './error';
 
 // ----------------------------------------------------------------------
 
@@ -30,6 +31,9 @@ export function Router() {
 
     // Main
     ...mainRoutes,
+
+    // Error
+    ...errorRoutes,
 
     // No match
     { path: '*', element: <Navigate to="/404" replace /> },

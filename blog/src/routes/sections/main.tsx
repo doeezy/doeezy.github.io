@@ -8,23 +8,18 @@ import { LoadingScreen } from 'src/components/loading-screen';
 
 // ----------------------------------------------------------------------
 
+const AiLLMListPage = lazy(() => import('src/pages/ai-llm/list'));
+const AiLLMDetailPage = lazy(() => import('src/pages/ai-llm/details'));
 const JsListPage = lazy(() => import('src/pages/javascript/list'));
 const JsDetailPage = lazy(() => import('src/pages/javascript/details'));
 const ReactListPage = lazy(() => import('src/pages/react/list'));
 const ReactDetailPage = lazy(() => import('src/pages/react/details'));
 const VueListPage = lazy(() => import('src/pages/vuejs/list'));
 const VueDetailPage = lazy(() => import('src/pages/vuejs/details'));
-const NuxtListPage = lazy(() => import('src/pages/nuxtjs/list'));
-const NuxtDetailPage = lazy(() => import('src/pages/nuxtjs/details'));
 const KeycloakListPage = lazy(() => import('src/pages/keycloak/list'));
 const KeycloakDetailPage = lazy(() => import('src/pages/keycloak/details'));
 const TroubleListPage = lazy(() => import('src/pages/troubleshooting/list'));
 const TroubleDetailPage = lazy(() => import('src/pages/troubleshooting/details'));
-
-// Error
-const Page500 = lazy(() => import('src/pages/sample/error/500'));
-const Page403 = lazy(() => import('src/pages/sample/error/403'));
-const Page404 = lazy(() => import('src/pages/sample/error/404'));
 
 // ----------------------------------------------------------------------
 
@@ -47,6 +42,14 @@ export const mainRoutes = [
       {
         element: <>{layoutContent}</>,
         children: [
+          {
+            path: 'ai-llm',
+            children: [
+              { element: <AiLLMListPage />, index: true },
+              { path: 'list', element: <AiLLMListPage /> },
+              { path: ':title', element: <AiLLMDetailPage /> },
+            ],
+          },
           {
             path: 'javascript',
             children: [
@@ -72,14 +75,6 @@ export const mainRoutes = [
             ],
           },
           {
-            path: 'nuxtjs',
-            children: [
-              { element: <NuxtListPage />, index: true },
-              { path: 'list', element: <NuxtListPage /> },
-              { path: ':title', element: <NuxtDetailPage /> },
-            ],
-          },
-          {
             path: 'keycloak',
             children: [
               { element: <KeycloakListPage />, index: true },
@@ -95,9 +90,6 @@ export const mainRoutes = [
               { path: ':title', element: <TroubleDetailPage /> },
             ],
           },
-          { path: '500', element: <Page500 /> },
-          { path: '404', element: <Page404 /> },
-          { path: '403', element: <Page403 /> },
         ],
       },
     ],

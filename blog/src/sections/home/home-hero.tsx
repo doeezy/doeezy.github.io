@@ -144,7 +144,7 @@ export function HomeHero({ sx, ...other }: BoxProps) {
         <Stack alignItems="center" spacing={2.5}>
           <Button
             component={RouterLink}
-            href={paths.dashboard.root}
+            href={paths.javascript.root}
             color="inherit"
             size="large"
             variant="contained"

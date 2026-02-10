@@ -31,6 +31,36 @@ export const _booleans = [
   false,
   false,
   true,
+  
+];
+
+// ----------------------------------------------------------------------
+
+export const _socials = [
+  {
+    value: 'facebook',
+    label: 'FaceBook',
+    icon: 'eva:facebook-fill',
+    color: '#1877F2',
+  },
+  {
+    value: 'instagram',
+    label: 'Instagram',
+    icon: 'ant-design:instagram-filled',
+    color: '#E02D69',
+  },
+  {
+    value: 'linkedin',
+    label: 'Linkedin',
+    icon: 'eva:linkedin-fill',
+    color: '#007EBB',
+  },
+  {
+    value: 'twitter',
+    label: 'Twitter',
+    icon: 'eva:twitter-fill',
+    color: '#00AAEC',
+  },
 ];
 
 // ----------------------------------------------------------------------

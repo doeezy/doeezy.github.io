@@ -3,9 +3,12 @@ import { postModulesByCategory } from '../utils/postModules';
 import matter from 'gray-matter';
 
 const getPosts = async (target: string) => {
+  const targetModules = postModulesByCategory[target as keyof typeof postModulesByCategory];
+  if (!targetModules) return [];
+
   const loaded: any[] = await Promise.all(
-    Object.entries(postModulesByCategory[target]).map(async ([path, loader]) => {
-      const filename = path.split('/').pop();
+    Object.entries(targetModules).map(async ([path, loader]) => {
+      const filename = path.split('/').pop() || '';
 
       const raw = await loader();
       const { data } = matter(raw);
@@ -31,6 +34,12 @@ export const getNavData = async () => {
       subheader: '',
       items: [
         {
+          title: 'AI / LLM',
+          path: paths["ai-llm"].root,
+          icon: 'twemoji:robot',
+          children: await getPosts('ai-llm'),
+        },
+        {
           title: 'JavaScript',
           path: paths.javascript.root,
           icon: 'vscode-icons:file-type-light-js',
@@ -47,12 +56,6 @@ export const getNavData = async () => {
           path: paths.vuejs.root,
           icon: 'vscode-icons:file-type-vue',
           children: await getPosts('vuejs'),
-        },
-        {
-          title: 'Nuxt.js',
-          path: paths.nuxtjs.root,
-          icon: 'vscode-icons:file-type-nuxt',
-          children: await getPosts('nuxtjs'),
         },
         {
           title: 'Keycloak',

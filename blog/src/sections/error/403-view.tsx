@@ -15,7 +15,6 @@ import { varBounce, MotionContainer } from 'src/components/animate';
 
 export function View403() {
   return (
-    <SimpleLayout content={{ compact: true }}>
       <Container component={MotionContainer}>
         <m.div variants={varBounce().in}>
           <Typography variant="h3" sx={{ mb: 2 }}>
@@ -38,6 +37,5 @@ export function View403() {
           Go to home
         </Button>
       </Container>
-    </SimpleLayout>
   );
 }
