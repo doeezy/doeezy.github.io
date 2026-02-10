@@ -30,10 +30,10 @@ export function PostListView({ category }: Props) {
       <CustomBreadcrumbs
         heading="전체"
         links={[
+          { name: 'AI / LLM', href: paths["ai-llm"].root },
           { name: 'Javascript', href: paths.javascript.root },
           { name: 'React', href: paths.react.root },
           { name: 'Vue.js', href: paths.vuejs.root },
-          { name: 'Nuxt.js', href: paths.nuxtjs.root },
           { name: 'Keycloak', href: paths.keycloak.root },
           { name: 'Troubleshooting', href: paths.troubleshooting.root },
         ]}

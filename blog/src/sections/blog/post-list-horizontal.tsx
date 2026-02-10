@@ -27,7 +27,13 @@ export function PostListHorizontal({ category, loading, sortBy }: Props) {
 
   useEffect(() => {
     const loadPosts = async () => {
-      const targetModules = category === 'all' ? postModules : postModulesByCategory[category];
+      const targetModules =
+        category === 'all'
+          ? postModules
+          : postModulesByCategory[category as keyof typeof postModulesByCategory];
+
+      if (!targetModules) return;
+
       const loaded: any[] = await Promise.all(
         Object.entries(targetModules).map(async ([path, loader]) => {
           const raw = await loader();

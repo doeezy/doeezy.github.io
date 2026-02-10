@@ -6,7 +6,6 @@ import MenuList from '@mui/material/MenuList';
 import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
 
-import { paths } from 'src/routes/paths';
 import { useRouter, usePathname } from 'src/routes/hooks';
 
 import { Label } from 'src/components/label';
@@ -73,34 +72,28 @@ export function AccountPopover({ data = [], sx, ...other }: AccountPopoverProps)
         <Divider sx={{ borderStyle: 'dashed' }} />
 
         <MenuList sx={{ p: 1, my: 1 }}>
-          {data.map((option) => {
-            const rootLabel = pathname.includes('/dashboard') ? 'Home' : 'Dashboard';
+          {data.map((option) => (
+            <MenuItem
+              key={option.label}
+              onClick={() => handleClickItem(option.href)}
+              sx={{
+                py: 1,
+                color: 'text.secondary',
+                '& svg': { width: 24, height: 24 },
+                '&:hover': { color: 'text.primary' },
+              }}
+            >
+              {option.icon}
 
-            const rootHref = pathname.includes('/dashboard') ? '/' : paths.dashboard.root;
+              <Box component="span">{option.label}</Box>
 
-            return (
-              <MenuItem
-                key={option.label}
-                onClick={() => handleClickItem(option.label === 'Home' ? rootHref : option.href)}
-                sx={{
-                  py: 1,
-                  color: 'text.secondary',
-                  '& svg': { width: 24, height: 24 },
-                  '&:hover': { color: 'text.primary' },
-                }}
-              >
-                {option.icon}
-
-                <Box component="span">{option.label === 'Home' ? rootLabel : option.label}</Box>
-
-                {option.info && (
-                  <Label color="error" sx={{ ml: 1 }}>
-                    {option.info}
-                  </Label>
-                )}
-              </MenuItem>
-            );
-          })}
+              {option.info && (
+                <Label color="error" sx={{ ml: 1 }}>
+                  {option.info}
+                </Label>
+              )}
+            </MenuItem>
+          ))}
         </MenuList>
 
         <Divider sx={{ borderStyle: 'dashed' }} />

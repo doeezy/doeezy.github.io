@@ -15,18 +15,16 @@ import { varBounce, MotionContainer } from 'src/components/animate';
 
 export function NotFoundView() {
   return (
-    <SimpleLayout content={{ compact: true }}>
       <Container component={MotionContainer}>
         <m.div variants={varBounce().in}>
           <Typography variant="h3" sx={{ mb: 2 }}>
-            Sorry, page not found!
+            페이지를 찾을 수 없습니다!
           </Typography>
         </m.div>
 
         <m.div variants={varBounce().in}>
           <Typography sx={{ color: 'text.secondary' }}>
-            Sorry, we couldn’t find the page you’re looking for. Perhaps you’ve mistyped the URL? Be
-            sure to check your spelling.
+            죄송합니다. 요청하신 페이지를 찾을 수 없습니다. URL을 잘못 입력하셨거나 페이지가 이동되었을 수 있습니다.
           </Typography>
         </m.div>
 
@@ -35,9 +33,8 @@ export function NotFoundView() {
         </m.div>
 
         <Button component={RouterLink} href="/" size="large" variant="contained">
-          Go to home
+          홈으로 가기
         </Button>
       </Container>
-    </SimpleLayout>
   );
 }
