@@ -10,17 +10,7 @@ tags:
   - LLM
 ---
 
-[목차]<br/>
-- [🍅 RNN, LSTM, Tranformer](#rnn-lstm-transformer)<br/>
-  - [RNN](#rnn)
-  - [LSTM](#lstm-rnn-업그레이드)
-  - [Transformer](#transformer)
-  - [요약](#summary)
-- [🍅 Attention](#attention-title)
-  - [Attention Score](#attention-score)
-  - [Self-Attention](#self-attention)
-
-<h1 id="rnn-lstm-transformer">🍅 RNN, LSTM, Transformer</h1>
+# 🍅 RNN, LSTM, Transformer
 
 🤷🏾‍♀️ 어디에 쓰이는 애들임?
 
@@ -78,11 +68,7 @@ RNN, LSTM, Transformer는 전부 **순서가 있는 데이터를 다루는 모�
 - 게임 플레이 로그
 - 추천 시스템의 행동 이력
 
-<br/>
-
 ---
-
-<br/>
 
 ```json
 "철수는 영희에게 책을 줬다. 그래서 **그는** 기뻤다."
@@ -133,7 +119,7 @@ RNN, LSTM, Transformer는 전부 **순서가 있는 데이터를 다루는 모�
 
 이걸 가능하게 하는 건 **Attention임**
 
-<h3 id="summary">🥫 요약</h3>
+### 🥫 요약
 
 **RNN / LSTM**
 
@@ -149,7 +135,7 @@ RNN, LSTM, Transformer는 전부 **순서가 있는 데이터를 다루는 모�
 
 <br/>
 
-<h1 id="attention-title">🍅 Attention</h1>
+# 🍅 Attention
 
 Attention을 한 문장으로 표현하면
 
@@ -218,7 +204,7 @@ Attention도 사람과 동일하게 한다.
 - 멀리 떨어진 단어도 바로 연결이 가능함
 - 문장이 길어져도 관계가 유지됨
 
-그래서 Transformer는
+Transformer는
 
 - 모든 단어를 **동시에 Attention 계산**
 - 병렬 처리 가능 (GPU 친화)
