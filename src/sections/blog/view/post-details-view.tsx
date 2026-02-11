@@ -31,7 +31,13 @@ export function PostDetailsView({ title, category }: Props) {
 
   useEffect(() => {
     const fetchPost = async () => {
-      const matchPost = Object.entries(postModulesByCategory[category]).find(([path, loader]) =>
+      const targetModules = postModulesByCategory[category as keyof typeof postModulesByCategory];
+      if (!targetModules) {
+        setPost('파일을 찾을 수 없습니다');
+        return;
+      }
+
+      const matchPost = Object.entries(targetModules).find(([path, loader]) =>
         path.includes(`${title}.md`)
       );
 
@@ -56,7 +62,13 @@ export function PostDetailsView({ title, category }: Props) {
     <>
       <Stack spacing={3} direction={{ xs: 'column', md: 'row' }} sx={{ mb: { xs: 3, md: 5 } }}>
         <Stack spacing={1} direction="row" alignItems="flex-start">
-          <IconButton component={RouterLink} href={paths[category].root}>
+          <IconButton
+            component={RouterLink}
+            href={
+              // @ts-ignore
+              paths[category] ? paths[category].root : '/'
+            }
+          >
             <Iconify icon="eva:arrow-ios-back-fill" />
           </IconButton>
 
@@ -70,7 +82,7 @@ export function PostDetailsView({ title, category }: Props) {
             </Typography>
 
             <Stack direction="row" alignItems="center" spacing={1} sx={{ mt: { xs: 1, md: 2 } }}>
-              {(post?.tags ?? []).map((tag) => (
+              {(post?.tags ?? []).map((tag: string) => (
                 <Chip key={tag} label={tag} variant="soft" sx={{ color: '#078DEE' }} />
               ))}
             </Stack>
